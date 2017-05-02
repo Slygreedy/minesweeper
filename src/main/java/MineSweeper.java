@@ -64,6 +64,21 @@ public class MineSweeper implements ActionListener {
                     if (y > 0 && counts[x][y - 1] == MINE) {
                         neighbourCount++;
                     }
+                    if (x < counts.length - 1 && y > 0 && counts[x + 1][y - 1] == MINE) {
+                        neighbourCount++;
+                    }
+                    if (x > 0 && counts[x - 1][y] == MINE) {
+                        neighbourCount++;
+                    }
+                    if (x < counts.length - 1 && counts[x + 1][y] == MINE) {
+                        neighbourCount++;
+                    }
+                    if (x > 0 && y < counts[0].length - 1 && counts[x - 1][y + 1] == MINE) {
+                        neighbourCount++;
+                    }
+                    if (y < counts[0].length - 1 && counts[x][y + 1] == MINE) {
+                        neighbourCount++;
+                    }
                     if (x < counts.length - 1 && y < counts[0].length - 1 && counts[x + 1][y + 1] == MINE) {
                         neighbourCount++;
                     }
@@ -166,7 +181,6 @@ public class MineSweeper implements ActionListener {
                         toClear.add((x+1)*100 + (y+1));
                     }
                 }
-
             }
             clearZeroes(toClear);
         }
